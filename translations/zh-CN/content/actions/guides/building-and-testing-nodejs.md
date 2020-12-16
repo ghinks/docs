@@ -45,7 +45,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -69,7 +69,7 @@ jobs:
 
 `setup-node` 操作采用 Node.js 版本作为输入，并在运行器上配置该版本。 `setup-node` 操作从每个运行器上的工具缓存中查找特定版本的 Node.js，并将必要的二进制文件添加到 `PATH`，这可继续用于作业的其余部分。 使用 `setup-node` 操作是 Node.js 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Node.js 行为一致。 如果使用自托管运行器，则必须安装 Node.js 并将其添加到 `PATH`。
 
-模板包含一个矩阵策略：用三个 Node.js 版本 8.x、10.x 和 12.x 构建和测试代码，其中“x”是通配符，匹配可用于版本的最新次要版和补丁版。 "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
+模板包含一个矩阵策略：用三个 Node.js 版本 10.x、12.x 和 14.x 构建和测试代码，其中“x”是通配符，匹配可用于版本的最新次要版和补丁版。 "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
 
 每个作业都可以使用 `matrix` 上下文访问矩阵 `node-version` 阵列中定义的值。 `setup-node` 操作使用上下文作为 `node-version` 输入。 `setup-node` 操作在构建和测试代码之前使用不同的 Node.js 版本配置每个作业。 有关矩阵策略和上下文的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)”和“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
@@ -77,7 +77,7 @@ jobs:
 ```yaml
 strategy:
   matrix:
-    node-version: [8.x, 10.x, 12.x]
+    node-version: [10.x, 12.x, 14.x]
 
 steps:
 - uses: actions/checkout@v2
